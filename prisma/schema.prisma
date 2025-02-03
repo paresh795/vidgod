@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id             String   @id @default(uuid())
+  createdAt      DateTime @default(now())
+  finalScript    String
+  ttsAudioUrl    String?
+  audioDuration  Float?   // Changed to Float for precise duration
+  stylePrompt    String?
+  aspectRatio    String?  // Store aspect ratio separately
+  stylePreviewUrl String? // Store the preview image URL
+
+  slots          Slot[]
+}
+
+model Slot {
+  id              String   @id @default(uuid())
+  index           Int
+  textSegment     String?  // The segmented text
+  sceneDescription String? // Brief description of the scene
+  imagePrompt     String?  // Detailed visual prompt
+  imageUrl        String?  // URL of the generated image
+  videoPrompt     String?  // Prompt used for video generation
+  videoUrl        String?  // URL of the generated video
+  videoStatus     String?  // Status of video generation (NOT_STARTED, PROCESSING, COMPLETED, FAILED)
+  timestamp       String?  // e.g. "0-5s"
+  isApproved      Boolean  @default(false)
+  continuityMetadata String? // Store visual continuity information as JSON string
+
+  projectId       String
+  project         Project  @relation(fields: [projectId], references: [id])
+}
