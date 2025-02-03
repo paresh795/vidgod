@@ -1,23 +1,44 @@
 # VidGod - AI-Powered Video Generation Platform
 
-VidGod is a powerful web application that transforms text and images into captivating videos using AI. Built with Next.js, Prisma, and Replicate's AI models, it offers a seamless workflow for generating professional videos from your content.
+VidGod is an innovative AI-powered platform that transforms your stories into captivating videos through a seamless, automated workflow. Starting from a simple conversation, it guides you through the entire video creation process - from script development to final video generation, all powered by cutting-edge AI technology.
 
-## 🌟 Features
+## 🌟 Features & Workflow
 
-- 🎯 Text-to-Speech narration generation
-- 🖼️ AI-powered image generation for scenes
-- 🎬 Video generation from images with motion
-- 📝 Scene segmentation and management
-- 🎨 Style sampling and consistency
-- 📱 Responsive modern UI
-- 🔄 Real-time status updates
+### 1. Interactive Story Development
+- 🤖 AI-powered chat interface for story development
+- 💡 Intelligent suggestions and refinements
+- 📝 Collaborative script creation
+
+### 2. Professional Narration
+- 🎯 Text-to-Speech generation using ElevenLabs
+- 🎙️ Multiple voice options
+- 🎭 Emotion-aware narration
+
+### 3. Smart Scene Segmentation
+- ⚡ Automatic audio segmentation into 5-6 minute scenes
+- 🎬 Intelligent scene boundary detection
+- 📊 Timeline visualization and management
+
+### 4. AI-Powered Visual Generation
+- 🎨 Style sampling and consistency management
+- 🖼️ Bulk image generation for all scenes
+- ✨ Customizable visual prompts
+- 🎭 Scene-specific style adjustments
+
+### 5. Dynamic Video Creation
+- 🎬 Image-to-video transformation
+- 🔄 Motion generation and enhancement
+- 📹 Scene-by-scene video preview
+- 🎞️ Consistent visual style across scenes
 
 ## 🚀 Tech Stack
 
 - **Frontend**: Next.js 14, React, Tailwind CSS, shadcn/ui
 - **Backend**: Next.js API Routes
 - **Database**: SQLite with Prisma ORM
-- **AI Services**: Replicate API
+- **AI Services**: 
+  - Replicate API for image and video generation
+  - ElevenLabs for text-to-speech
 - **Authentication**: (Optional) Auth.js
 
 ## 📋 Prerequisites
@@ -45,12 +66,10 @@ yarn install
 ```
 
 3. Set up environment variables:
-Create a `.env` file in the root directory with the following:
+Copy `.env.example` to `.env` and update the values:
 
-```env
-DATABASE_URL="file:./prisma/dev.db"
-REPLICATE_API_TOKEN="your_replicate_api_key"
-ELEVENLABS_API_KEY="your_elevenlabs_api_key"  # Optional for TTS
+```bash
+cp .env.example .env
 ```
 
 4. Initialize the database:
@@ -68,7 +87,7 @@ npm run dev
 yarn dev
 ```
 
-Visit `http://localhost:3000` to see the application.
+Visit `http://localhost:3000/chat` to start using the application.
 
 ## 🔧 Configuration
 
@@ -80,55 +99,45 @@ Visit `http://localhost:3000` to see the application.
 - `ELEVENLABS_API_KEY`: For text-to-speech functionality
 - `NEXT_PUBLIC_APP_URL`: Your production URL
 
-## 🎮 Usage
+## 🎮 Detailed Usage Guide
 
-1. **Create a New Project**:
-   - Enter your script text
-   - Choose a voice for narration
-   - Generate the audio narration
+1. **Start Your Project** (`/chat`):
+   - Begin by describing your story to the AI
+   - Collaborate with AI to refine your script
+   - Review and approve the final script
 
-2. **Scene Segmentation**:
-   - Review auto-generated segments
-   - Adjust timings if needed
-   - Add scene descriptions
+2. **Create Narration** (`/create`):
+   - Select from multiple AI voice options
+   - Generate professional narration
+   - Preview and adjust the audio
 
-3. **Style Sampling**:
-   - Choose visual style
-   - Generate sample images
-   - Approve style for consistency
+3. **Scene Segmentation**:
+   - AI automatically segments your narration
+   - Review scene boundaries and timings
+   - Add or edit scene descriptions
+   - Approve segmentation
 
-4. **Image Generation**:
-   - Generate images for each scene
-   - Edit prompts if needed
-   - Review and regenerate if necessary
+4. **Style Development**:
+   - Choose initial visual style
+   - Generate and review style samples
+   - Refine style parameters
+   - Ensure visual consistency
 
-5. **Video Generation**:
-   - Generate videos for each scene
-   - Preview and download videos
-   - Combine into final output
+5. **Bulk Image Generation**:
+   - Auto-generate images for all scenes
+   - Review and edit scene prompts
+   - Regenerate specific images if needed
+   - Maintain style consistency
+
+6. **Video Creation**:
+   - Transform images into fluid videos
+   - Preview each scene's video
+   - Adjust motion parameters
+   - Download final videos
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Replicate](https://replicate.com/) for AI models
-- [ElevenLabs](https://elevenlabs.io/) for TTS capabilities
-- [shadcn/ui](https://ui.shadcn.com/) for UI components
-- [Next.js](https://nextjs.org/) for the framework
-- [Prisma](https://www.prisma.io/) for database ORM
-
-## 📞 Support
-
-For support, please open an issue in the GitHub repository or contact the maintainers.
+2. Create your feature branch (`
